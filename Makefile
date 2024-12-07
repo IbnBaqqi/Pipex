@@ -6,7 +6,7 @@
 #    By: sabdulba <sabdulba@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 20:10:13 by sabdulba          #+#    #+#              #
-#    Updated: 2024/12/07 00:42:25 by sabdulba         ###   ########.fr        #
+#    Updated: 2024/12/07 10:17:22 by sabdulba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJ := $(SRC:src%.c=obj%.o)
 
 all: $(NAME)
 
-$(LIBFT): $(LIBFT_DIR)/libft.a
+$(LIBFT): $(LIBFT_DIR)
 	make -C $(LIBFT_DIR);
 
 $(LIBFT_DIR):
@@ -54,5 +54,7 @@ fclean: clean
 	$(RM) $(LIBFT_DIR)/libft.a
 	$(RM) $(LIBFT_DIR)
 
+re: fclean all
+
 m:
-	./$(NAME) infile wc -l outfile
+	./$(NAME) infile.txt "ls -l" "wc -l" outfile.txt
