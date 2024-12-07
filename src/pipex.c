@@ -6,7 +6,7 @@
 /*   By: sabdulba <sabdulba@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 20:09:53 by sabdulba          #+#    #+#             */
-/*   Updated: 2024/12/07 10:09:15 by sabdulba         ###   ########.fr       */
+/*   Updated: 2024/12/07 12:04:43 by sabdulba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ void	exec(char *cmd, char **env)
 
 	n_cmd = ft_split(cmd, ' ');
 	path = get_path(n_cmd[0], env);
+	//ft_printf("%s\n", path);
+	// if (access(path, X_OK) == -1)
+	// {
+	// 	ft_putstr_fd("pipex: permission denied: ", 2);
+	// 	ft_putendl_fd(n_cmd[0], 2);
+	// 	free_tab(n_cmd);
+	// 	exit(126);
+	// }
+	//try with else if
 	if (execve(path, n_cmd, env) == -1)
 	{
 		ft_putstr_fd("pipex: command not found: ", 2);
