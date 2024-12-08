@@ -6,7 +6,7 @@
 /*   By: sabdulba <sabdulba@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 20:09:37 by sabdulba          #+#    #+#             */
-/*   Updated: 2024/12/07 03:54:07 by sabdulba         ###   ########.fr       */
+/*   Updated: 2024/12/08 12:39:14 by sabdulba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		open_file(char *file, int in_or_out);
 void	free_tab(char **tab);
 char	*ft_getenv(char *name, char **env);
 char	*get_path(char *cmd, char **env);
+void	check_file_access(char *file, int mode, char *error_msg, int i_or_o);
 
 #endif
