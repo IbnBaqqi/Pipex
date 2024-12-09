@@ -6,7 +6,7 @@
 /*   By: sabdulba <sabdulba@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 20:09:53 by sabdulba          #+#    #+#             */
-/*   Updated: 2024/12/08 17:13:51 by sabdulba         ###   ########.fr       */
+/*   Updated: 2024/12/09 06:22:12 by sabdulba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,16 @@ void	exec(char *cmd, char **env)
 {
 	char	**n_cmd;
 	char	*path;
+	int i = 0;
 
-	n_cmd = ft_splitplus(cmd, ' ');
+	//n_cmd = ft_splitplus(cmd, ' ');
+	n_cmd = ft_split(cmd, ' ');
+	while (n_cmd[i] != NULL)
+	{
+		ft_putstr_fd("1..", 2);
+		ft_putendl_fd(n_cmd[i], 2);
+		i++;
+	}
 	path = get_path(n_cmd[0], env);
 	if (access(path, F_OK) == -1)
 	{
@@ -36,10 +44,14 @@ void	exec(char *cmd, char **env)
 		exit(126);
 	}
 }
-/* void check_char(char )
+void check_char(char *str)
 {
-	
-} */
+	int i = 0;
+	while (str[i] != '\'')
+	{
+		i++;
+	}
+}
 
 void	child(char **av, int *p_fd, char **env)
 {

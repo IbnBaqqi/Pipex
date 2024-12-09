@@ -6,7 +6,7 @@
 /*   By: sabdulba <sabdulba@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 23:01:17 by sabdulba          #+#    #+#             */
-/*   Updated: 2024/12/08 15:33:27 by sabdulba         ###   ########.fr       */
+/*   Updated: 2024/12/09 02:04:38 by sabdulba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@ int	open_file(char *file, int in_or_out)
 		res = open(file, O_RDONLY, 0777);
 	}
 	if (in_or_out == 1)
-	{
-		//check_file_access(file, R_OK, "permission denied: ", 0);
-		//check_file_access(file, W_OK, "permission denied: ", 0);
 		res = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	}
 	if (res == -1)
 		exit(EXIT_FAILURE);
 	return (res);
